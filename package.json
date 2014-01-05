@@ -1,0 +1,56 @@
+{
+  "name": "eight-track",
+  "description": "Record and playback HTTP requests",
+  "version": "0.1.0",
+  "homepage": "https://github.com/uber/eight-track",
+  "author": {
+    "name": "Todd Wolfson",
+    "email": "todd@twolfson.com",
+    "url": "http://twolfson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/uber/eight-track.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uber/eight-track/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/uber/eight-track/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/eight-track",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt jshint && mocha"
+  },
+  "dependencies": {
+    "request": "~2.30.0",
+    "underscore": "~1.5.2",
+    "mkdirp": "~0.3.5",
+    "concat-stream": "~1.2.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.11.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.0",
+    "chai": "~1.8.1",
+    "rimraf": "~2.2.5",
+    "express": "~3.4.7",
+    "grunt-cli": "~0.1.11"
+  },
+  "keywords": [
+    "http",
+    "record",
+    "playback",
+    "cassette",
+    "vcr",
+    "middleware",
+    "8-track"
+  ]
+}
