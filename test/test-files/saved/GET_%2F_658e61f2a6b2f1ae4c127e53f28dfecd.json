@@ -1,0 +1,14 @@
+{
+  "httpVersion": "1.1",
+  "headers": {
+    "x-powered-by": "Express",
+    "content-type": "text/html; charset=utf-8",
+    "content-length": "6",
+    "etag": "\"1996523642\"",
+    "date": "Sat, 04 Jan 2014 08:55:44 GMT",
+    "connection": "keep-alive"
+  },
+  "trailers": {},
+  "statusCode": 200,
+  "body": "oh hai"
+}
