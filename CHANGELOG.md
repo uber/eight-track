@@ -1,4 +1,6 @@
 # eight-track changelog
+1.3.0 - Truncate urls in filenames to 32 characters
+
 1.2.0 - Added `normalizeFn` as an option
 
 1.1.0 - Break down eight-track into `middleware`, `EightTrack`, `connections`, and `fs-store`
