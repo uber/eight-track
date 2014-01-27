@@ -48,6 +48,16 @@ Middleware creator for new `eightTrack's`. This *is not* a constructor.
     - fixtureDir `String` - Path to load/save HTTP responses
         - Files will be saved with the format `{{method}}_{{encodedUrl}}_{{hashOfRequestContent}}.json`
         - An example filename is `GET_%2F_658e61f2a6b2f1ae4c127e53f28dfecd.json`
+    - normalizeFn `Function` - Function to adjust `request's` save location signature
+        - If you would like to make two requests resolve from the same response file, this is how.
+        - The function signature should be `function (info)` and can either mutate the `info` or return a fresh object
+        - `info` will have the following properties
+             - httpVersion `String` - HTTP version received from `request` (e.g. `1.0`, `1.1`)
+             - headers `Object` - Headers received by `request`
+             - trailers `Object` - Trailers received by `request`
+             - method `String` - HTTP method that was used (e.g. `GET`, `POST`)
+             - url `String` - Pathname that `request` arrived from
+             - body `String` - Buffered body that was written to `request`
 
 [`url.format`]: http://nodejs.org/api/url.html#url_url_format_urlobj
 
