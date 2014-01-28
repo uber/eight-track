@@ -58,6 +58,7 @@ Middleware creator for new `eightTrack's`. This *is not* a constructor.
              - method `String` - HTTP method that was used (e.g. `GET`, `POST`)
              - url `String` - Pathname that `request` arrived from
              - body `String` - Buffered body that was written to `request`
+        - Existing `normalizeFn` libraries (e.g. `multipart/form-data` can be found below)
 
 [`url.format`]: http://nodejs.org/api/url.html#url_url_format_urlobj
 
@@ -80,6 +81,10 @@ eightTrack({
   fixtureDir: 'directory/to/save/responses'
 });
 ```
+
+#### `normalizeFn` libraries
+- `multipart/form-data` - Ignore randomly generated boundaries and consolidate similar `multipart/form-data` requests
+    - Website: https://github.com/twolfson/eight-track-normalize-multipart
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
