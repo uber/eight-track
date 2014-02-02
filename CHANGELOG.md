@@ -1,4 +1,6 @@
 # eight-track changelog
+1.3.1 - Added documentation for `normalizeFn`
+
 1.3.0 - Truncate urls in filenames to 32 characters
 
 1.2.0 - Added `normalizeFn` as an option
