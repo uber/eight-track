@@ -1,4 +1,6 @@
 # eight-track changelog
+1.4.0 - Added memory cache for faster requests
+
 1.3.1 - Added documentation for `normalizeFn`
 
 1.3.0 - Truncate urls in filenames to 32 characters
