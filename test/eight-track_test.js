@@ -287,6 +287,23 @@ describe('An `eight-track` loading from a saved file', function () {
       expect(this.body).to.equal('oh hai');
     });
   });
+
+  // DEV: This is a test for verifying we don't contaminate our cache
+  describe('when a response is modified', function () {
+    httpUtils.save({
+      url: 'http://localhost:1338/'
+    });
+    before(function () {
+      this.res.body = 'hello';
+    });
+    httpUtils.save({
+      url: 'http://localhost:1338/'
+    });
+
+    it('does not impact the original data', function () {
+      expect(this.res.body).to.equal('oh hai');
+    });
+  });
 });
 
 // DEV: Regression test for https://github.com/uber/eight-track/issues/4
