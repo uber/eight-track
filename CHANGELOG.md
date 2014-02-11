@@ -1,4 +1,6 @@
 # eight-track changelog
+1.4.1 - Bumping version due to bad publish
+
 1.4.0 - Added memory cache for faster requests
 
 1.3.1 - Added documentation for `normalizeFn`
