@@ -436,7 +436,7 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
       headers: {
         'Accept-Encoding' : 'gzip'
       },
-      url: 'http://localhost:1337/octet.stream'
+      url: 'http://localhost:1338/octet.stream'
     });
 
     it('replies with the binary content', function () {
