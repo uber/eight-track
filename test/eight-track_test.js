@@ -420,3 +420,34 @@ describe('A server with distinct responses', function () {
     });
   });
 });
+
+// DEV: This is a regression test for https://github.com/uber/eight-track/issues/17
+describe('A server being proxied by `eight-track` that delivers binary content', function () {
+  serverUtils.run(1337, function (req, res) {
+    res.send(new Buffer('0A00'));
+  });
+  serverUtils.runEightServer(1338, {
+    fixtureDir: __dirname + '/actual-files/basic',
+    url: 'http://localhost:1337'
+  });
+
+  describe('when requested', function () {
+    httpUtils.save('http://localhost:1338/');
+
+    it('replies with the binary content', function () {
+
+    });
+
+    describe('and when requested again', function () {
+      httpUtils.save('http://localhost:1338/');
+
+      it('replies with the binary content', function () {
+
+      });
+
+      it('does not double request', function () {
+        expect(this.requests[1337]).to.have.property('length', 1);
+      });
+    });
+  });
+});
