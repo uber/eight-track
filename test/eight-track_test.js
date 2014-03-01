@@ -449,11 +449,17 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
       expect(this.body.length).to.equal(256);
     });
 
-    describe.skip('and when requested again', function () {
-      httpUtils.save('http://localhost:1338/');
+    describe('and when requested again', function () {
+      httpUtils.save({
+        encoding: null,
+        url: 'http://localhost:1338/'
+      });
 
       it('replies with the binary content', function () {
-
+        expect(this.err).to.equal(null);
+        expect(this.res.statusCode).to.equal(200);
+        expect(this.body[0]).to.equal(66); // 42 from hex to decimal
+        expect(this.body.length).to.equal(256);
       });
 
       it('does not double request', function () {
