@@ -445,9 +445,8 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
     });
     it('replies with the binary content', function () {
       expect(this.res.statusCode).to.equal(200);
-      var expectedBuff = new Buffer(256);
-      expectedBuff.write('\u0042', 0);
-      expect(this.body).to.deep.equal(expectedBuff);
+      expect(this.body[0]).to.equal(66); // 42 from hex to decimal
+      expect(this.body.length).to.equal(256);
     });
 
     describe.skip('and when requested again', function () {
