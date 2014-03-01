@@ -424,9 +424,7 @@ describe('A server with distinct responses', function () {
 // DEV: This is a regression test for https://github.com/uber/eight-track/issues/17
 describe.only('A server being proxied by `eight-track` that delivers binary content', function () {
   serverUtils.run(1337, function (req, res) {
-    express.compress()(req, res, function () {
-      res.send('sup');
-    });
+    res.sendfile(__dirname + '/test-files/1x1.gif');
   });
   serverUtils.runEightServer(1338, {
     fixtureDir: __dirname + '/actual-files/basic',
@@ -438,7 +436,7 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
       headers: {
         'Accept-Encoding' : 'gzip'
       },
-      url: 'http://localhost:1338/1x1.gif'
+      url: 'http://localhost:1337/octet.stream'
     });
 
     it('replies with the binary content', function () {
