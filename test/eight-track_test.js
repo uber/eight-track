@@ -441,8 +441,11 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
       url: 'http://localhost:1338/octet.stream'
     });
 
-    it('replies with the binary content', function () {
+    it('does not encounter an error', function () {
+      // DEV: If you see HPE_INVALID_CONSTANT, it is probably related to Content-Length due to too long of a stringify
       expect(this.err).to.equal(null);
+    });
+    it('replies with the binary content', function () {
       expect(this.res.statusCode).to.equal(200);
       var expectedBuff = new Buffer(256);
       expectedBuff.write('\u0042', 0);
