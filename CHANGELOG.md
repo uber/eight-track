@@ -1,4 +1,6 @@
 # eight-track changelog
+1.5.0 - Stopped following redirects for all requests. Fixes #18
+
 1.4.1 - Bumping version due to bad publish
 
 1.4.0 - Added memory cache for faster requests
