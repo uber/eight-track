@@ -1,4 +1,6 @@
 # eight-track changelog
+1.6.0 - Moved to deep clone for `pickMessageInfo`. Fixes #22
+
 1.5.0 - Stopped following redirects for all requests. Fixes #18
 
 1.4.1 - Bumping version due to bad publish
