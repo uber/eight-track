@@ -52,8 +52,8 @@ describe('A repeated request run 1000 times', function () {
   });
 
   // DEV: This is Travis CI time for consistency
-  it('takes no longer than 1400ms/100 to load', function () {
+  it('takes no longer than 1800ms/100 to load', function () {
     var runTime = this.endTime - this.startTime;
-    assert(runTime < 1400, 'Expected: < 1400, Actual: ' + runTime);
+    assert(runTime < 1800, 'Expected: < 1800, Actual: ' + runTime);
   });
 });
