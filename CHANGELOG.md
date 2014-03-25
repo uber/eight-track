@@ -1,4 +1,6 @@
 # eight-track changelog
+1.6.1 - Increased performance test threshold for Travis CI
+
 1.6.0 - Moved to deep clone for `pickMessageInfo`. Fixes #22
 
 1.5.0 - Stopped following redirects for all requests. Fixes #18
