@@ -2,6 +2,7 @@ var fs = require('fs');
 var expect = require('chai').expect;
 var express = require('express');
 var request = require('request');
+var rimraf = require('rimraf');
 var eightTrack = require('../');
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
@@ -310,8 +311,9 @@ describe('An `eight-track` with a response modifier', function () {
   serverUtils.run(1337, function (req, res) {
     res.send('oh hai', 418);
   });
+  var fixtureDir =  __dirname + '/actual-files/response-modifier';
   var _eightTrack = eightTrack({
-    fixtureDir: __dirname + '/actual-files/response-modifier',
+    fixtureDir: fixtureDir,
     url: 'http://localhost:1337'
   });
   serverUtils.run(1338, function (req, res) {
@@ -319,6 +321,10 @@ describe('An `eight-track` with a response modifier', function () {
       res.send(externalBody.replace('hai', 'haiii'), externalRes.statusCode);
     });
   });
+  after(function cleanupEightTrack (done) {
+    rimraf(fixtureDir, done);
+  });
+
 
   describe('receiving a request', function () {
     httpUtils.save({
