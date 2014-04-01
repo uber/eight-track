@@ -306,7 +306,7 @@ describe('An `eight-track` loading from a saved file', function () {
   });
 });
 
-describe.only('An `eight-track` with a response modifier', function () {
+describe('An `eight-track` with a response modifier', function () {
   serverUtils.run(1337, function (req, res) {
     res.send('oh hai', 418);
   });
