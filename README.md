@@ -86,6 +86,23 @@ eightTrack({
 - `multipart/form-data` - Ignore randomly generated boundaries and consolidate similar `multipart/form-data` requests
     - Website: https://github.com/twolfson/eight-track-normalize-multipart
 
+### `eightTrack.forwardRequest(req, cb)`
+Forward an incoming HTTP request in a [`mikeal/request`][]-like format.
+
+- req `http.IncomingMessage` - Inbound request to an HTTP server (e.g. from `http.createServer`)
+    - Documentation: http://nodejs.org/api/http.html#http_http_incomingmessage
+- cb `Function` - Callback function with `(err, res, body)` signature
+    - err `Error` - HTTP error if any occurred (e.g. `ECONNREFUSED`)
+    - res `Object` - Container that looks like an HTTP object but simiplified due to saving to disk
+        - httpVersion `String` - HTTP version received from external server response (e.g. `1.0`, `1.1`)
+        - headers `Object` - Headers received by response
+        - trailers `Object` - Trailers received by response
+        - statusCode `Number` - Status code received from external server response
+        - body `String` - Buffered body that was written to response
+    - body `String` - Sugar variable for `res.body`
+
+[`mikeal/request`]: https://github.com/mikeal/request
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
 
