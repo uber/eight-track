@@ -306,6 +306,29 @@ describe('An `eight-track` loading from a saved file', function () {
   });
 });
 
+describe('An `eight-track` with a response modifier', function () {
+  serverUtils.run(1337, function (req, res) {
+    res.send('oh hai', 418);
+  });
+  serverUtils.run(1338, function (req, res) {
+    eightTrack.forwardRequest(req, function (err, externalRes, externalBody) {
+      res.send(externalBody.replace('hai', 'haiii'), externalRes.statusCode);
+    });
+  });
+
+  describe('receiving a request', function () {
+    httpUtils.save({
+      url: 'http://localhost:1338/'
+    });
+
+    it('responds through our modified', function () {
+      expect(this.err).to.equal(null);
+      expect(this.res.statusCode).to.equal(418);
+      expect(this.body).to.equal('oh haiii');
+    });
+  });
+});
+
 // DEV: Regression test for https://github.com/uber/eight-track/issues/4
 describe('A server that echoes HTTP headers', function () {
   serverUtils.run(1337, function (req, res) {
