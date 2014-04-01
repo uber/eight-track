@@ -1,4 +1,6 @@
 # eight-track changelog
+1.7.0 - Added `forwardRequest` method
+
 1.6.1 - Increased performance test threshold for Travis CI
 
 1.6.0 - Moved to deep clone for `pickMessageInfo`. Fixes #22
