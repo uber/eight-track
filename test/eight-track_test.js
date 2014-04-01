@@ -306,12 +306,16 @@ describe('An `eight-track` loading from a saved file', function () {
   });
 });
 
-describe('An `eight-track` with a response modifier', function () {
+describe.only('An `eight-track` with a response modifier', function () {
   serverUtils.run(1337, function (req, res) {
     res.send('oh hai', 418);
   });
+  var _eightTrack = eightTrack({
+    fixtureDir: __dirname + '/test-files/response-modifier',
+    url: 'http://localhost:1337'
+  });
   serverUtils.run(1338, function (req, res) {
-    eightTrack.forwardRequest(req, function (err, externalRes, externalBody) {
+    _eightTrack.forwardRequest(req, function (err, externalRes, externalBody) {
       res.send(externalBody.replace('hai', 'haiii'), externalRes.statusCode);
     });
   });
