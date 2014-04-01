@@ -330,6 +330,20 @@ describe('An `eight-track` with a response modifier', function () {
       expect(this.res.statusCode).to.equal(418);
       expect(this.body).to.equal('oh haiii');
     });
+
+    describe('when requested again', function () {
+      httpUtils.save({
+        url: 'http://localhost:1338/'
+      });
+
+      it('has the same header', function () {
+        expect(this.body).to.equal('oh haiii');
+      });
+
+      it('does not double request', function () {
+        expect(this.requests[1337]).to.have.property('length', 1);
+      });
+    });
   });
 });
 
