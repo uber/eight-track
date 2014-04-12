@@ -1,4 +1,16 @@
 # eight-track changelog
+1.7.0 - Added `forwardRequest` method
+
+1.6.1 - Increased performance test threshold for Travis CI
+
+1.6.0 - Moved to deep clone for `pickMessageInfo`. Fixes #22
+
+1.5.0 - Stopped following redirects for all requests. Fixes #18
+
+1.4.1 - Bumping version due to bad publish
+
+1.4.0 - Added memory cache for faster requests
+
 1.3.1 - Added documentation for `normalizeFn`
 
 1.3.0 - Truncate urls in filenames to 32 characters
