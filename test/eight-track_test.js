@@ -604,7 +604,7 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
       expect(this.body.length).to.equal(256);
     });
 
-    describe('and when requested again', function () {
+    describe.skip('and when requested again', function () {
       httpUtils.save({
         encoding: null,
         url: 'http://localhost:1338/'
