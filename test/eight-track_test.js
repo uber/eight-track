@@ -317,8 +317,8 @@ describe('An `eight-track` with a response modifier', function () {
     url: 'http://localhost:1337'
   });
   serverUtils.run(1338, function (req, res) {
-    _eightTrack.forwardRequest(req, function (err, externalRes, externalBody) {
-      res.send(externalBody.replace('hai', 'haiii'), externalRes.statusCode);
+    _eightTrack.forwardRequest(req, function (err, outgoingRes, outgoingResBody) {
+      res.send(outgoingResBody.replace('hai', 'haiii'), outgoingRes.statusCode);
     });
   });
   after(function cleanupEightTrack (done) {
