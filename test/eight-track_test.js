@@ -7,6 +7,11 @@ var eightTrack = require('../');
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
 
+// DEV: Prevent self-trolling with actual-files cleanup
+before(function (done) {
+  rimraf(__dirname + '/actual-files', done);
+});
+
 describe('A server', function () {
   serverUtils.run(1337, function (req, res) {
     res.send('oh hai');
