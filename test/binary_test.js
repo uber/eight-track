@@ -1,3 +1,7 @@
+var expect = require('chai').expect;
+var eightTrack = require('../');
+var httpUtils = require('./utils/http');
+var serverUtils = require('./utils/server');
 
 // DEV: This is a regression test for https://github.com/uber/eight-track/issues/17
 describe('A server being proxied by `eight-track` that delivers binary content', function () {
