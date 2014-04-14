@@ -19,13 +19,13 @@ describe.only('A server that echoes method that is being proxied', function () {
   });
 
   describe('when requested via POST', function () {
-    // httpUtils.save({
-    //   method: 'POST',
-    //   url: 'http://localhost:1338/',
-    //   form: {
-    //     hello: 'world'
-    //   }
-    // });
+    httpUtils.save({
+      method: 'POST',
+      url: 'http://localhost:1338/',
+      form: {
+        hello: 'world'
+      }
+    });
 
     it('replies with POST', function () {
       expect(this.err).to.equal(null);
@@ -38,7 +38,7 @@ describe.only('A server that echoes method that is being proxied', function () {
       });
     });
 
-    describe('when requested again', function () {
+    describe.skip('when requested again', function () {
       httpUtils.save({
         method: 'POST',
         url: 'http://localhost:1338/',
