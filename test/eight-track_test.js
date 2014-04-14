@@ -577,7 +577,7 @@ describe('A server being proxied by `eight-track` with a noramlizeFn that modifi
 });
 
 // DEV: This is a regression test for https://github.com/uber/eight-track/issues/17
-describe.only('A server being proxied by `eight-track` that delivers binary content', function () {
+describe('A server being proxied by `eight-track` that delivers binary content', function () {
   describe('when requested', function () {
     serverUtils.run(1337, function (req, res) {
       var buff = new Buffer(256);
