@@ -34,7 +34,8 @@
     "mkdirp": "~0.3.5",
     "concat-stream": "~1.2.1",
     "async": "~0.2.10",
-    "clone": "~0.1.11"
+    "clone": "~0.1.11",
+    "fs-memory-store": "~0.1.0"
   },
   "devDependencies": {
     "mocha": "~1.11.0",
@@ -44,7 +45,8 @@
     "chai": "~1.8.1",
     "rimraf": "~2.2.5",
     "express": "~3.4.7",
-    "grunt-cli": "~0.1.11"
+    "grunt-cli": "~0.1.11",
+    "request-mocha": "~0.2.0"
   },
   "keywords": [
     "http",
