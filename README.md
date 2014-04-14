@@ -57,7 +57,7 @@ Middleware creator for new `eightTrack's`. This *is not* a constructor.
              - trailers `Object` - Trailers received by `request`
              - method `String` - HTTP method that was used (e.g. `GET`, `POST`)
              - url `String` - Pathname that `request` arrived from
-             - body `String` - Buffered body that was written to `request`
+             - body `Buffer` - Buffered body that was written to `request`
         - Existing `normalizeFn` libraries (e.g. `multipart/form-data` can be found below)
 
 [`url.format`]: http://nodejs.org/api/url.html#url_url_format_urlobj
@@ -98,8 +98,8 @@ Forward an incoming HTTP request in a [`mikeal/request`][]-like format.
         - headers `Object` - Headers received by response
         - trailers `Object` - Trailers received by response
         - statusCode `Number` - Status code received from external server response
-        - body `String` - Buffered body that was written to response
-    - body `String` - Sugar variable for `res.body`
+        - body `Buffer` - Buffered body that was written to response
+    - body `Buffer` - Sugar variable for `res.body`
 
 [`mikeal/request`]: https://github.com/mikeal/request
 
