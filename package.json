@@ -45,7 +45,8 @@
     "chai": "~1.8.1",
     "rimraf": "~2.2.5",
     "express": "~3.4.7",
-    "grunt-cli": "~0.1.11"
+    "grunt-cli": "~0.1.11",
+    "request-mocha": "~0.2.0"
   },
   "keywords": [
     "http",
