@@ -38,7 +38,7 @@ describe.only('A server that echoes method that is being proxied', function () {
       });
     });
 
-    describe.skip('when requested again', function () {
+    describe('when requested again', function () {
       httpUtils.save({
         method: 'POST',
         url: 'http://localhost:1338/',
