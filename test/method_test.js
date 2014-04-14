@@ -3,7 +3,7 @@ var express = require('express');
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
 
-describe.only('A server that echoes method that is being proxied', function () {
+describe('A server that echoes method that is being proxied', function () {
   serverUtils.run(1337, function (req, res) {
     express.urlencoded()(req, res, function (err) {
       if (err) { throw err; }
