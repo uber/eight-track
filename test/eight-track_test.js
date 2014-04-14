@@ -623,11 +623,11 @@ describe.only('A server being proxied by `eight-track` that delivers binary cont
     });
   });
 
-  describe('when loaded from disk', function () {
+  describe.skip('when loaded from disk', function () {
     serverUtils.run(1337, function (req, res) {
       // DEV: Generate new content via commented line
-      // var buff = new Buffer(256); buff.write('\u0042', 0); res.send(buff);
-      res.send('Not binary content');
+      var buff = new Buffer(256); buff.write('\u0042', 0); res.send(buff);
+      // res.send('Not binary content');
     });
     serverUtils.run(1338, eightTrack({
       fixtureDir: __dirname + '/test-files/saved-binary',
