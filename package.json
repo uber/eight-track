@@ -26,7 +26,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt jshint && mocha"
+    "test": "rm -r test/actual-files || true; grunt jshint && mocha"
   },
   "dependencies": {
     "request": "~2.30.0",
