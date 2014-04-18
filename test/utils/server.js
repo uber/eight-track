@@ -1,5 +1,6 @@
 var https = require('https');
 var express = require('express');
+var pem = require('pem');
 var rimraf = require('rimraf');
 var eightTrack = require('../../');
 
@@ -37,9 +38,25 @@ exports.run = function (port, middlewares) {
     return app.listen(port);
   }, port, middlewares);
 };
+
 exports.runHttps = function (port, middlewares) {
-  exports._run(function startHttpServer (app, port) {
-    var server = https.createServer(app);
+  // Generate an HTTPS certificate
+  before(function generateCertificate (done) {
+    pem.createCertificate({days: 1, selfSigned: true}, function saveCertificate (err, keys) {
+      this.certificate = keys;
+      done(err);
+    });
+  });
+  after(function cleanupCertificate () {
+    delete this.certificate;
+  });
+
+  // Start the HTTPS server with said certificate
+  exports._run(function startHttpsServer (app, port) {
+    var server = https.createServer({
+      key: this.certificate.serviceKey,
+      cert: this.certificate.certificate
+    }, app);
     server.listen(port);
     return server;
   }, port, middlewares);

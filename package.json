@@ -46,7 +46,8 @@
     "rimraf": "~2.2.5",
     "express": "~3.4.7",
     "grunt-cli": "~0.1.11",
-    "request-mocha": "~0.2.0"
+    "request-mocha": "~0.2.0",
+    "pem": "~1.4.0"
   },
   "keywords": [
     "http",

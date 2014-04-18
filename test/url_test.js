@@ -22,8 +22,7 @@ describe('An `eight-track` server proxying a subpath', function () {
 });
 
 describe.only('An `eight-track` server proxying an HTTPS server', function () {
-  // TODO: Make this an HTTPS server
-  serverUtils.run(1337, function (req, res) {
+  serverUtils.runHttps(1337, function (req, res) {
     res.send('oh hai');
   });
   serverUtils.runEightServer(1338, {
