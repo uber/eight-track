@@ -21,7 +21,7 @@ describe('A server with multiple paths', function () {
     describe('a request to `/hello`', function () {
       httpUtils.save('http://localhost:1338/hello');
 
-      it.only('replies with \'hello\'', function () {
+      it('replies with \'hello\'', function () {
         expect(this.err).to.equal(null);
         expect(this.body).to.equal('hello');
       });
