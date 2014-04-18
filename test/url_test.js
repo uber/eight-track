@@ -31,6 +31,9 @@ describe.only('An `eight-track` server proxying an HTTPS server', function () {
   });
 
   describe('when requested', function () {
+    before(function allowSelfSignedCert () {
+      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+    });
     httpUtils.save('http://localhost:1338/');
 
     it('proxies to the server', function () {
