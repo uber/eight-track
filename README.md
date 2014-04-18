@@ -103,6 +103,26 @@ Forward an incoming HTTP request in a [`mikeal/request`][]-like format.
 
 [`mikeal/request`]: https://github.com/mikeal/request
 
+## Examples
+### Proxy server with subpath
+`eight-track` can talk to servers that are behind a specific path
+
+```js
+// Start up a server that echoes our path
+express().use(function (req, res) {
+  res.send(req.path);
+}).listen(1337);
+
+// Create a server using a `eight-track` middleware to the original
+express().use(eightTrack({
+  url: 'http://localhost:1337/hello',
+  fixtureDir: 'directory/to/save/responses'
+})).listen(1338);
+
+// Logs `/hello/world`, concatenated result of `/hello` and `/world` pathss
+request('http://localhost:1338/world', console.log);
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
 
