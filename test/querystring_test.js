@@ -4,7 +4,7 @@ var serverUtils = require('./utils/server');
 
 // DEV: This tests that we save a request with query parameters
 // DEV: and that it forwards the query parameters
-describe.only('A query-echoing server being proxied', function () {
+describe('A query-echoing server being proxied', function () {
   serverUtils.run(1337, function (req, res) {
     res.send(req.query);
   });
