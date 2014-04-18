@@ -2,9 +2,6 @@ var expect = require('chai').expect;
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
 
-// TODO: Should we extend `query`?
-// TODO: It feels like URL extension deserves to be its own node module
-
 describe.only('An `eight-track` server proxying a subpath', function () {
   serverUtils.run(1337, function (req, res) {
     res.send(req.url);
