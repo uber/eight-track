@@ -1,4 +1,6 @@
 # eight-track changelog
+1.9.1 - Cleaned up files left by `git-sqwish`
+
 1.9.0 - Moved body from string to buffer. Fixes #17
 
 1.8.0 - Refactored `eight-track` again; see https://github.com/uber/eight-track/pull/27 for details
