@@ -17,11 +17,12 @@
       "content-type": "text/html; charset=utf-8",
       "content-length": "6",
       "etag": "\"1996523642\"",
-      "date": "Sun, 26 Jan 2014 09:16:25 GMT",
+      "date": "Mon, 14 Apr 2014 01:00:11 GMT",
       "connection": "keep-alive"
     },
     "trailers": {},
     "statusCode": 200,
+    "bodyEncoding": "utf8",
     "body": "oh hai"
   }
 }
