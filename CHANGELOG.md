@@ -1,4 +1,6 @@
 # eight-track changelog
+1.8.0 - Refactored `eight-track` again; see https://github.com/uber/eight-track/pull/27 for details
+
 1.7.0 - Added `forwardRequest` method
 
 1.6.1 - Increased performance test threshold for Travis CI
