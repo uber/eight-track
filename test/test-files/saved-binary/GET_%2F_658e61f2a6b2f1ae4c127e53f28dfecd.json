@@ -1,0 +1,28 @@
+{
+  "request": {
+    "httpVersion": "1.1",
+    "headers": {
+      "host": "localhost:1338",
+      "connection": "keep-alive"
+    },
+    "trailers": {},
+    "method": "GET",
+    "url": "/",
+    "body": ""
+  },
+  "response": {
+    "httpVersion": "1.1",
+    "headers": {
+      "x-powered-by": "Express",
+      "content-type": "application/octet-stream",
+      "content-length": "256",
+      "etag": "\"1919059971\"",
+      "date": "Mon, 14 Apr 2014 00:59:31 GMT",
+      "connection": "keep-alive"
+    },
+    "trailers": {},
+    "statusCode": 200,
+    "bodyEncoding": "base64",
+    "body": "QgQjIAUAAAAAAAAAAAAAANiHKwIAAAAAExHsAQIAAADwRCECAAAAAHB3KwIAAAAAzFC4GwAAAADIQyECAAAAALB3KwIAAAAAbT+wOQEAAADgXyQCAAAAAAAAAAAAAAAArNzpAgYAAACoXyQCAAAAAPB3KwIAAAAAf+8VJQIAAADACZYAAAAAADAVlgAAAAAAEAAAABEAAADwRCECAAAAAPB3KwIAAAAAMHgrAgAAAABweCsCAAAAALB4KwIAAAAAWHkrAgAAAAAIeisCAAAAANh6KwIAAAAAwHsrAgAAAADofSsCAAAAANB+KwIAAAAAgH8rAgAAAABQgCsCAAAAAA=="
+  }
+}
