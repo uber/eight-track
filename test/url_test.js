@@ -14,23 +14,31 @@ describe.only('An `eight-track` server with a subpath', function () {
     url: 'http://localhost:1337/hello'
   });
 
-  describe('when requested', function () {
-    it('concatenates the path', function () {
+  describe('when requested with a path', function () {
+    httpUtils.save('http://localhost:1338/world');
 
+    it('concatenates the path', function () {
+      expect(this.err).to.equal(null);
+      expect(this.body).to.equal('/hello/world');
     });
   });
 });
 
 describe.skip('An `eight-track` server with a `/` subpath', function () {
   serverUtils.run(1337, function (req, res) {
-    if (req.url === '/') {
-      res.redirect('/main');
-    } else {
-      res.send('oh hai');
-    }
+    res.send(req.url);
   });
   serverUtils.runEightServer(1338, {
     fixtureDir: __dirname + '/actual-files/redirect',
-    url: 'http://localhost:1337'
+    url: 'http://localhost:1337/'
+  });
+
+  describe('when requested with a path', function () {
+    httpUtils.save('http://localhost:1338/world');
+
+    it('uses the normal path', function () {
+      expect(this.err).to.equal(null);
+      expect(this.body).to.equal('/world');
+    });
   });
 });
