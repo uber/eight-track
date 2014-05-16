@@ -1,11 +1,15 @@
 var expect = require('chai').expect;
+var express = require('express');
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
 
 describe('A server that asserts content before talking to eight-track', function () {
-  serverUtils.run(1337, function (req, res) {
-    res.send(req.headers);
-  });
+  serverUtils.run(1337, [
+    express.urlencoded(),
+    function (req, res) {
+      res.send(req.body);
+    }
+  ]);
   serverUtils.runEightServer(1338, {
     fixtureDir: __dirname + '/actual-files/headers',
     url: 'http://localhost:1337'

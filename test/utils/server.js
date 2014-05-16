@@ -24,7 +24,12 @@ exports._run = function (listenFn, port, middlewares) {
     });
 
     // Use our middlewares and start listening
-    app.use(middlewares);
+    if (!Array.isArray(middlewares)) {
+      middlewares = [middlewares];
+    }
+    middlewares.forEach(function (middleware) {
+      app.use(middleware);
+    });
     _app = listenFn(app, port);
   });
   after(function deleteServer (done) {
