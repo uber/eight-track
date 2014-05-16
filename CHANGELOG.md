@@ -1,4 +1,6 @@
 # eight-track changelog
+2.1.0 - Added ability for requests to already be buffered. Fixes #32
+
 2.0.0 - Allow subpaths for proxy URLs. Fixes #2
 
 1.9.1 - Cleaned up files left by `git-sqwish`
