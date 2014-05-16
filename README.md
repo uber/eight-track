@@ -82,6 +82,24 @@ eightTrack({
 });
 ```
 
+If you need to buffer the data before passing it off to `eight-track` that is supported as well.
+The requirement is that you record the data as a `Buffer` or `String` to `req.body`.
+
+```js
+// Example of buffering, asserting, and continuing with `eight-track`
+connect()
+  .use(function assertBody (req, res, next) {
+    req.pipe(concat(function (buff) {
+      req.body = buff;
+      assert.strictEqual(req.body.toString(), 'hello=world');
+      next();
+    }));
+  })
+  .use(eightTrack({
+    // ...
+  }));
+```
+
 #### `normalizeFn` libraries
 - `multipart/form-data` - Ignore randomly generated boundaries and consolidate similar `multipart/form-data` requests
     - Website: https://github.com/twolfson/eight-track-normalize-multipart
