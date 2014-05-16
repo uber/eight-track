@@ -26,6 +26,7 @@ describe('A server that asserts content before talking to eight-track', function
   serverUtils.run(1338, [
     connectRawBody,
     function assertInfo (req, res, next) {
+      expect(req.body.toString()).to.equal('hello=world');
       next();
     },
     eightTrack({
@@ -63,20 +64,6 @@ describe('A server that asserts content before talking to eight-track', function
 
       it('does not double request', function () {
         expect(this.requests[1337]).to.have.property('length', 1);
-      });
-    });
-
-    describe('and a request with a different body', function () {
-      httpUtils.save({
-        form: {
-          goodbye: 'moon'
-        },
-        url: 'http://localhost:1338/'
-      });
-
-      it('receives a different set of parameters', function () {
-        expect(this.err).to.equal(null);
-        expect(JSON.parse(this.body)).to.have.property('goodbye', 'moon');
       });
     });
   });
