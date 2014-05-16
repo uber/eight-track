@@ -24,7 +24,12 @@ exports._run = function (listenFn, port, middlewares) {
     });
 
     // Use our middlewares and start listening
-    app.use(middlewares);
+    if (!Array.isArray(middlewares)) {
+      middlewares = [middlewares];
+    }
+    middlewares.forEach(function (middleware) {
+      app.use(middleware);
+    });
     _app = listenFn(app, port);
   });
   after(function deleteServer (done) {
@@ -63,9 +68,12 @@ exports.runHttps = function (port, middlewares) {
 };
 
 // Start an eight-track server
+exports._cleanupEightTrack = function (fixtureDir) {
+  after(function cleanupEightTrack (done) {
+    rimraf(fixtureDir, done);
+  });
+};
 exports.runEightServer = function (port, options) {
   exports.run(port, eightTrack(options));
-  after(function cleanupEightTrack (done) {
-    rimraf(options.fixtureDir, done);
-  });
+  exports._cleanupEightTrack(options.fixtureDir);
 };

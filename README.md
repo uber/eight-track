@@ -82,6 +82,9 @@ eightTrack({
 });
 ```
 
+If you need to buffer the data before passing it off to `eight-track` that is supported as well.
+The requirement is that you record the data as a `Buffer` or `String` to `req.body`.
+
 #### `normalizeFn` libraries
 - `multipart/form-data` - Ignore randomly generated boundaries and consolidate similar `multipart/form-data` requests
     - Website: https://github.com/twolfson/eight-track-normalize-multipart
