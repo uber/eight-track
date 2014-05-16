@@ -1,7 +1,19 @@
 var expect = require('chai').expect;
 var express = require('express');
+var rawBody = require('raw-body');
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
+
+// TODO: This should be a separate repo
+function connectRawBody(req, res, next) {
+  rawBody(req, function handleBody (err, buff) {
+    if (err) {
+      next(err);
+    }
+    req.body = buff;
+    next();
+  });
+}
 
 describe('A server that asserts content before talking to eight-track', function () {
   serverUtils.run(1337, [
