@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 var express = require('express');
 var rawBody = require('raw-body');
+var eightTrack = require('../');
 var httpUtils = require('./utils/http');
 var serverUtils = require('./utils/server');
 
@@ -22,10 +23,17 @@ describe('A server that asserts content before talking to eight-track', function
       res.send(req.body);
     }
   ]);
-  serverUtils.runEightServer(1338, {
-    fixtureDir: __dirname + '/actual-files/headers',
-    url: 'http://localhost:1337'
-  });
+  serverUtils.run(1338, [
+    connectRawBody,
+    function assertInfo (req, res, next) {
+      next();
+    },
+    eightTrack({
+      fixtureDir: __dirname + '/actual-files/buffered-body',
+      url: 'http://localhost:1337'
+    })
+  ]);
+  serverUtils._cleanupEightTrack(__dirname + '/actual-files/buffered-body');
 
   describe('when requested', function () {
     httpUtils.save({

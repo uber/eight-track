@@ -68,9 +68,12 @@ exports.runHttps = function (port, middlewares) {
 };
 
 // Start an eight-track server
+exports._cleanupEightTrack = function (fixtureDir) {
+  after(function cleanupEightTrack (done) {
+    rimraf(fixtureDir, done);
+  });
+};
 exports.runEightServer = function (port, options) {
   exports.run(port, eightTrack(options));
-  after(function cleanupEightTrack (done) {
-    rimraf(options.fixtureDir, done);
-  });
+  exports._cleanupEightTrack(options.fixtureDir);
 };
