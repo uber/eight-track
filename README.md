@@ -9,6 +9,12 @@ This is built to make testing against third party services a breeze. No longer w
 [`cassette`]: https://github.com/uber/cassette
 [`vcr`]: https://rubygems.org/gems/vcr
 
+## Active forks
+`eight-track` has been forked by [@twolfson][] as [`nine-track`][]. This includes new features such as `scrubFn` for sanitizing data before saving to disk.
+
+[@twolfson]: https://github.com/twolfson
+[`nine-track`]: https://github.com/twolfson/nine-track
+
 ## Getting Started
 Install the module with: `npm install eight-track`
 
