@@ -19,7 +19,7 @@ This is built to make testing against third party services a breeze. No longer w
 Install the module with: `npm install eight-track`
 
 ```javascript
-// Start up a basic applciation
+// Start up a basic application
 var express = require('express');
 var eightTrack = require('eight-track');
 var request = require('request');
@@ -128,7 +128,7 @@ express().use(eightTrack({
   fixtureDir: 'directory/to/save/responses'
 })).listen(1338);
 
-// Logs `/hello/world`, concatenated result of `/hello` and `/world` pathss
+// Logs `/hello/world`, concatenated result of `/hello` and `/world` paths
 request('http://localhost:1338/world', console.log);
 ```
 
